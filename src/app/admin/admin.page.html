@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+     ShazamVin
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/admin" class="ios" tab="home">
+      <ion-icon name="list-box"></ion-icon>
+      <ion-label>Vin List</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/make" class="ios" tab="make">
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>Ajouter</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+  
+  
+</ion-tabs>
+  <ion-list>
+
+    <ion-reorder-group (ionItemReorder)="reorderList($event)" disabled="false">
+
+      <ion-item-sliding *ngFor="let user of UsersArray" reorder="true">
+        <ion-item>
+          <ion-label>
+            <h2>
+              {{user.name}}
+            </h2>
+            <p>
+              {{user.marque}}
+            </p>
+          </ion-label>
+          <!-- List reorder button -->
+          <ion-reorder slot="end" class="ios hydrated"></ion-reorder>
+        </ion-item>
+
+        <ion-item-options>
+          <ion-button color="light" [routerLink]="['/edit/', user.$key]">
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" (click)="deleteUser(user.$key)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-reorder-group>
+
+  </ion-list>
+  
+
+</ion-content>
+
+

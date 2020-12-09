@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Vin
+    </ion-title>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content>
+  <ion-list reorder="true">
+    <form [formGroup]="userForm" (ngSubmit)="onUpdateForm()">
+      <ion-item>
+        <ion-label position="floating">bouche</ion-label>
+        <ion-input formControlName="bouche" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">degres</ion-label>
+        <ion-input formControlName="degres" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">marque</ion-label>
+        <ion-input formControlName="marque" type="text" required>
+        </ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label position="floating"> name</ion-label>
+        <ion-input formControlName="name" type="text" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">origine</ion-label>
+        <ion-input formControlName="origine" type="text" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">ref</ion-label>
+        <ion-input formControlName="ref" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">Update</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>
